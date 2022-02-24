@@ -1,22 +1,22 @@
 const Profesor = require("../models/profesoresModel");
 
 const guardarProfesorRepository = async (
-   nombre,
-   apeP,
-   apeM,
-   edad,
-   sexo,
-   direccion,
-   estadoCivil
+  nombre,
+  apellido_paterno,
+  apellido_materno,
+  edad,
+  sexo,
+  direccion,
+  estado_civil,
  ) => {
    const profesor = new Profesor({
-     nombre: nombre,
-     apellido_paterno: apeP,
-     apellido_materno: apeM,
-     edad: edad,
-     sexo: sexo,
-     direccion: direccion,
-     estado_civil: estadoCivil,
+     nombre,
+     apellido_paterno,
+     apellido_materno,
+     edad,
+     sexo,
+     direccion,
+     estado_civil,
    });
  
    const resultado = await profesor.save();

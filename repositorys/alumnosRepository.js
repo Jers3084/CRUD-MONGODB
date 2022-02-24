@@ -1,23 +1,7 @@
 const Alumno = require("..//models/alumnosModel");
 
-const guardarAlumnoRepository = async (
-  nombreAlumno,
-  apeP,
-  apeM,
-  edadAlumno,
-  sexoAlumno,
-  direccionAlumno,
-  estadoCivil
-) => {
-  const alumno = new Alumno({
-    nombre: nombreAlumno,
-    apellido_paterno: apeP,
-    apellido_materno: apeM,
-    edad: edadAlumno,
-    sexo: sexoAlumno,
-    direccion: direccionAlumno,
-    estado_civil: estadoCivil,
-  });
+const guardarAlumnoRepository = async (modelo) => {
+  const alumno = new Alumno(modelo);
 
   const resultado = await alumno.save();
 

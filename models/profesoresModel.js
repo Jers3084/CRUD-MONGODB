@@ -10,4 +10,4 @@ const profesorShema = new Schema({
   estado_civil: { type: String, default: "soltero" },
 });
 //nombre de la coleccion en singular y el esquema
-module.exports = model("profesor", profesorShema);
+module.exports = model("profesore", profesorShema);

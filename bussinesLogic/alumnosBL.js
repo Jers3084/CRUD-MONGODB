@@ -10,22 +10,23 @@ const listarAlumnosActuales = async () => {
 
 const agregarAlumnoNuevo = async (
   nombre,
-  apellidoPaterno,
-  apellidoMaterno,
+  apellido_paterno,
+  apellido_materno,
   edad,
   sexo,
   direccion,
-  estadoCivil
+  estado_civil,
 ) => {
-  const resultado = await guardarAlumnoRepository(
+  const modelo = {
     nombre,
-    apellidoPaterno,
-    apellidoMaterno,
+    apellido_paterno,
+    apellido_materno,
     edad,
     sexo,
     direccion,
-    estadoCivil
-  );
+    estado_civil,
+  }
+  const resultado = await guardarAlumnoRepository(modelo);
   return resultado;
 };
 

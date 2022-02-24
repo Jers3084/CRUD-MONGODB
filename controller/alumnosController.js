@@ -1,4 +1,8 @@
-const { listarAlumnosActuales, agregarAlumnoNuevo, actualizarEdadBL } = require("../bussinesLogic/alumnosBL");
+const {
+  listarAlumnosActuales,
+  agregarAlumnoNuevo,
+  actualizarEdadBL,
+} = require("../bussinesLogic/alumnosBL");
 const response = { success: true, messages: "", data: [] };
 
 const listarAlumnos = async (req, res) => {
@@ -20,21 +24,21 @@ const guardarNuevoAlumno = async (req, res) => {
   try {
     const {
       nombre,
-      apellidoPaterno,
-      apellidoMaterno,
+      apellido_paterno,
+      apellido_materno,
       edad,
       sexo,
       direccion,
-      estadoCivil,
+      estado_civil,
     } = req.body;
     const resultado = await agregarAlumnoNuevo(
       nombre,
-      apellidoPaterno,
-      apellidoMaterno,
+      apellido_paterno,
+      apellido_materno,
       edad,
       sexo,
       direccion,
-      estadoCivil
+      estado_civil
     );
     response.data = resultado;
     return res.json(response);
@@ -48,21 +52,20 @@ const guardarNuevoAlumno = async (req, res) => {
 };
 
 const actualizaEdad = async (req, res) => {
-   try {
-      const {_id,edad} = req.body
-      const resultado = await actualizarEdadBL(_id, edad);
+  try {
+    const { _id, edad } = req.body;
+    const resultado = await actualizarEdadBL(_id, edad);
 
-      response.messages = 'Alumno actualizado correctamente';
-      response.data = resultado;
+    response.messages = "Alumno actualizado correctamente";
+    response.data = resultado;
 
-      return res.json(response);
-
-} catch (e) {
-   console.log(e);
-   response.success = false;
-   response.messages = "Error interno en el servidor";
-   response.data = [];
-   return res.status(500).json(response); 
-}
-}
+    return res.json(response);
+  } catch (e) {
+    console.log(e);
+    response.success = false;
+    response.messages = "Error interno en el servidor";
+    response.data = [];
+    return res.status(500).json(response);
+  }
+};
 module.exports = { listarAlumnos, guardarNuevoAlumno, actualizaEdad };

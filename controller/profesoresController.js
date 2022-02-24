@@ -23,21 +23,21 @@ const guardarNuevoProfesor = async (req, res) => {
   try {
     const {
       nombre,
-      apellidoPaterno,
-      apellidoMaterno,
+      apellido_paterno,
+      apellido_materno,
       edad,
       sexo,
       direccion,
-      estadoCivil,
+      estado_civil,
     } = req.body;
     const resultado = await agregarProfesorNuevo(
       nombre,
-      apellidoPaterno,
-      apellidoMaterno,
+      apellido_paterno,
+      apellido_materno,
       edad,
       sexo,
       direccion,
-      estadoCivil
+      estado_civil,
     );
     response.data = resultado;
     return res.json(response);

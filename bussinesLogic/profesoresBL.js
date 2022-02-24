@@ -12,21 +12,21 @@ const {listarProfesores,
     
     const agregarProfesorNuevo = async (
       nombre,
-      apellidoPaterno,
-      apellidoMaterno,
+      apellido_paterno,
+      apellido_materno,
       edad,
       sexo,
       direccion,
-      estadoCivil
+      estado_civil,
     ) => {
       const resultado = await guardarProfesorRepository(
         nombre,
-        apellidoPaterno,
-        apellidoMaterno,
+        apellido_paterno,
+        apellido_materno,
         edad,
         sexo,
         direccion,
-        estadoCivil
+        estado_civil,
       );
       return resultado;
     };
